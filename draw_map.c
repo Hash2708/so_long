@@ -24,12 +24,12 @@ void draw_map(t_game *game)
                 }
                 else
                 {
-                    if ((x + y) % 5 == 0)
+                    if ((x + y) % 3 == 0)
                         draw_tile(game, game->img_wall, x, y);
-                    else if ((x + y) % 3 == 0)
-                        draw_tile(game, game->img_tree, x, y);
+                    else if ((x + y) % 9 == 0)
+                        draw_tile(game, game->img_wall, x, y);
                     else
-                        draw_tile(game, game->img_wall_alt, x, y);
+                        draw_tile(game, game->img_wall, x, y);
                 }
             }
             else if (game->map[y][x] == '0')
