@@ -19,8 +19,10 @@ typedef struct s_game
     int player_x;
     int player_y;
     int collectibles;
+    int collected;
     int exits;
     int moves;
+    
 
     void *mlx_ptr;
     void *win_ptr;

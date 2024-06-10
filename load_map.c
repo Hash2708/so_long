@@ -1,4 +1,5 @@
 #include "so_long.h"
+#include <stdio.h>
 
 void load_map(t_game *game, char *map_file)
 {
@@ -19,6 +20,8 @@ void load_map(t_game *game, char *map_file)
 
     game->width = strlen(line);
     game->height = 1;
+    game->collectibles = 0;
+    game->collected = 0;
 
     game->map = (char **)malloc(sizeof(char *) * (game->height + 1));
     if (!game->map)
@@ -26,7 +29,6 @@ void load_map(t_game *game, char *map_file)
 
     game->map[line_count] = strdup(line);
     free(line);
-
     while ((line = get_next_line(fd)))
     {
         game->height++;
