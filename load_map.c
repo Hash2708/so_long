@@ -22,11 +22,9 @@ void load_map(t_game *game, char *map_file)
     game->height = 1;
     game->collectibles = 0;
     game->collected = 0;
-
     game->map = (char **)malloc(sizeof(char *) * (game->height + 1));
     if (!game->map)
         error_exit("Memory allocation failed.\n");
-
     game->map[line_count] = strdup(line);
     free(line);
     while ((line = get_next_line(fd)))

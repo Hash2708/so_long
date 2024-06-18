@@ -22,11 +22,10 @@ typedef struct s_game
     int collected;
     int exits;
     int moves;
+    int player_direction;
     
-
     void *mlx_ptr;
     void *win_ptr;
-
     void *img_wall;
     void *img_wall_alt;
     void *img_tree;
@@ -38,7 +37,6 @@ typedef struct s_game
     void *img_exit;
     void *img_collectible;
 
-    int player_direction;
 } t_game;
 
 void load_map(t_game *game, char *map_file);
@@ -69,4 +67,7 @@ void free_image(t_game *game);
 
 void move_player(t_game *game, int dx, int dy);
 void draw_player(t_game *game);
+
+void draw_moves(t_game *game);
+char    *ft_itoa(int n);
 #endif

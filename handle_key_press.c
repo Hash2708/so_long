@@ -11,7 +11,7 @@ int handle_keypress(int keycode, t_game *game)
     }
     else if (keycode == 's' || keycode == 'S')
     {
-        game->player_direction = 0; // Down
+        game->player_direction = 0;
         move_player(game, 0, 1);
     }
     else if (keycode == 'a' || keycode == 'A')

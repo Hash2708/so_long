@@ -15,7 +15,9 @@ void validate_rectangle(t_game *game)
 
 void validate_borders(t_game *game)
 {
-    int i = 0;
+    int i;
+    
+    i = 0;
     while (i < game->width)
     {
         if (game->map[0][i] != '1' || game->map[game->height - 1][i] != '1')
@@ -43,7 +45,6 @@ void validate_path(t_game *game)
     map_copy = (char **)malloc(sizeof(char *) * game->height);
     if (!map_copy)
         error_exit("Memory allocation failed for map copy.\n");
-
     int i;
 
     i = 0;

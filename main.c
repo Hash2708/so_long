@@ -26,6 +26,9 @@ int main(int argc, char **argv)
     if (!game.mlx_ptr)
         error_exit("Failed to initialize mlx.\n");
 
+    int window_width = game.width * TILE_SIZE + 100;
+    int window_height = game.height * TILE_SIZE + 100; 
+
     game.win_ptr = mlx_new_window(game.mlx_ptr, game.width * TILE_SIZE, game.height * TILE_SIZE, "so_long");
     if (!game.win_ptr)
         error_exit("Failed to create window.\n");
