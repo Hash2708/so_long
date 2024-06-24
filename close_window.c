@@ -2,8 +2,7 @@
 
 int close_window(t_game *game)
 {
-    free_image(game);
-    mlx_destroy_window(game->mlx_ptr, game->win_ptr);
-    exit(0);
+    free_map(game);
+    mlx_loop_end(game->mlx_ptr);
     return 0;
 }

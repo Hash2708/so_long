@@ -68,6 +68,8 @@ void free_image(t_game *game);
 void move_player(t_game *game, int dx, int dy);
 void draw_player(t_game *game);
 
+void free_map(t_game *game);
+
 void draw_moves(t_game *game);
 char    *ft_itoa(int n);
 #endif
