@@ -8,9 +8,7 @@ void flood_fill(char **map, int x, int y, t_game *game)
         game->collectibles--;
     else if (map[y][x] == 'E')
         game->exits--;
-
     map[y][x] = 'F';
-
     flood_fill(map, x + 1, y, game);
     flood_fill(map, x - 1, y, game);
     flood_fill(map, x, y + 1, game);

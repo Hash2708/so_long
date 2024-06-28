@@ -40,6 +40,7 @@ typedef struct s_game
 } t_game;
 
 void load_map(t_game *game, char *map_file);
+//void *ft_realloc(void *ptr, size_t old_size, size_t new_size);
 void error_exit(const char *message);
 char *get_next_line(int fd);
 void cleanup(t_game *game);
@@ -70,6 +71,8 @@ void draw_player(t_game *game);
 
 void free_map(t_game *game);
 
-void draw_moves(t_game *game);
-char    *ft_itoa(int n);
+void init_game(t_game *game);
+
+/* void draw_moves(t_game *game);
+char    *ft_itoa(int n); */
 #endif

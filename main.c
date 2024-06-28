@@ -12,6 +12,32 @@ void count_c(char **map, t_game *game)
         }
     }
 }
+void init_game(t_game *game)
+{
+    game->map = NULL;
+    game->width = 0;
+    game->height = 0;
+    game->player_x = 0;
+    game->player_y = 0;
+    game->collectibles = 0;
+    game->collected = 0;
+    game->exits = 0;
+    game->moves = 0;
+    game->player_direction = 0;
+    
+    game->mlx_ptr = NULL;
+    game->win_ptr = NULL;
+    game->img_wall = NULL;
+    game->img_wall_alt = NULL;
+    game->img_tree = NULL;
+    game->img_floor = NULL;
+    game->img_player_up = NULL;
+    game->img_player_down = NULL;
+    game->img_player_left = NULL;
+    game->img_player_right = NULL;
+    game->img_exit = NULL;
+    game->img_collectible = NULL;
+}
 
 int main(int argc, char **argv)
 {
@@ -19,6 +45,7 @@ int main(int argc, char **argv)
 
     if (argc != 2)
         error_exit("Usage: ./so_long <map_file>\n");
+    init_game(&game);
     load_map(&game, argv[1]);
     validate_map(&game);
     count_c(game.map, &game);

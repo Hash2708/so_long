@@ -12,6 +12,5 @@ void draw_player(t_game *game)
         player_img = game->img_player_left;
     else
         player_img = game->img_player_right;
-
     draw_tile(game, player_img, game->player_x, game->player_y);
 }

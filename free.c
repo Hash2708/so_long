@@ -2,9 +2,12 @@
 
 void cleanup(t_game *game)
 {
-    for (int i = 0; i < game->height; i++)
+    int i;
+
+    i = 0;
+    while (i < game->height)
     {
         free(game->map[i]);
+        i++;
     }
-    free(game->map);
 }
