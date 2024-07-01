@@ -1,13 +1,25 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   free.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mrazanad <mrazanad@student.42antanana      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/07/01 17:21:39 by mrazanad          #+#    #+#             */
+/*   Updated: 2024/07/01 17:21:44 by mrazanad         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "so_long.h"
 
-void cleanup(t_game *game)
+void	cleanup(t_game *game)
 {
-    int i;
+	int	i;
 
-    i = 0;
-    while (i < game->height)
-    {
-        free(game->map[i]);
-        i++;
-    }
+	i = 0;
+	while (i < game->height)
+	{
+		free(game->map[i]);
+		i++;
+	}
 }
