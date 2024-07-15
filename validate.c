@@ -95,7 +95,10 @@ void	count_map_elements(t_game *game, int *player_count)
 			else if (game->map[y][x] == 'E')
 				game->exits++;
 			else if (game->map[y][x] != '0' && game->map[y][x] != '1')
+			{
+				free_map(game);
 				error_exit("Invalid character in map.\n");
+			}
 			x++;
 		}
 		y++;
@@ -105,9 +108,18 @@ void	count_map_elements(t_game *game, int *player_count)
 void	check_map_conditions(t_game *game, int player_count)
 {
 	if (player_count != 1)
+	{
+		free_map(game);
 		error_exit("Map must contain exactly one player.\n");
+	}
 	if (game->collectibles < 1)
+	{
+		free_map(game);
 		error_exit("Map must contain at least one collectible.\n");
+	}
 	if (game->exits != 1)
+	{
+		free_map(game);
 		error_exit("Map must contain exactly one exit.\n");
+	}
 }
