@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mrazanad <mrazanad@student.42antanana      +#+  +:+       +#+        */
+/*   By: mrazanad <mrazanad@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 17:33:09 by mrazanad          #+#    #+#             */
-/*   Updated: 2024/07/01 17:33:11 by mrazanad         ###   ########.fr       */
+/*   Updated: 2024/07/15 14:27:41 by mrazanad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,12 @@
 # include <unistd.h>
 
 # define TILE_SIZE 32
+
+typedef struct s_coords
+{
+	int		x;
+	int		y;
+}			t_coords;
 
 typedef struct s_game
 {
@@ -63,6 +69,8 @@ void		load_map(t_game *game, char *map_file);
 void		validate_rectangle(t_game *game);
 void		validate_borders(t_game *game);
 void		validate_path(t_game *game);
+void		process_map_element(t_game *game, char elem, t_coords *coords,
+				int *player_count);
 void		count_map_elements(t_game *game, int *player_count);
 void		check_map_conditions(t_game *game, int player_count);
 void		validate_map(t_game *game);

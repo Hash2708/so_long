@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mrazanad <mrazanad@student.42antanana      +#+  +:+       +#+        */
+/*   By: mrazanad <mrazanad@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 17:21:52 by mrazanad          #+#    #+#             */
-/*   Updated: 2024/07/01 17:21:54 by mrazanad         ###   ########.fr       */
+/*   Updated: 2024/07/15 14:01:53 by mrazanad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

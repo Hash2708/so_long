@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   validate.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mrazanad <mrazanad@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mrazanad <mrazanad@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 17:24:42 by mrazanad          #+#    #+#             */
-/*   Updated: 2024/07/01 17:29:26 by mrazanad         ###   ########.fr       */
+/*   Updated: 2024/07/15 14:32:15 by mrazanad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,14 +33,20 @@ void	validate_borders(t_game *game)
 	while (i < game->width)
 	{
 		if (game->map[0][i] != '1' || game->map[game->height - 1][i] != '1')
+		{
+			free_map(game);
 			error_exit("Map is not closed by walls.\n");
+		}
 		i++;
 	}
 	i = 0;
 	while (i < game->height)
 	{
 		if (game->map[i][0] != '1' || game->map[i][game->width - 1] != '1')
+		{
+			free_map(game);
 			error_exit("Map is not closed by walls.\n");
+		}
 		i++;
 	}
 }
@@ -71,38 +77,6 @@ void	validate_path(t_game *game)
 	free(map_copy);
 	if (game->collectibles > 0 || game->exits > 0)
 		error_exit("No valid path exists in the map.\n");
-}
-
-void	count_map_elements(t_game *game, int *player_count)
-{
-	int		y;
-	int		x;
-
-	y = 0;
-	while (y < game->height)
-	{
-		x = 0;
-		while (x < game->width)
-		{
-			if (game->map[y][x] == 'P')
-			{
-				(*player_count)++;
-				game->player_x = x;
-				game->player_y = y;
-			}
-			else if (game->map[y][x] == 'C')
-				game->collectibles++;
-			else if (game->map[y][x] == 'E')
-				game->exits++;
-			else if (game->map[y][x] != '0' && game->map[y][x] != '1')
-			{
-				free_map(game);
-				error_exit("Invalid character in map.\n");
-			}
-			x++;
-		}
-		y++;
-	}
 }
 
 void	check_map_conditions(t_game *game, int player_count)

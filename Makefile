@@ -1,6 +1,6 @@
 NAME = so_long
 
-SRCS = draw_map.c init_window.c load_textures.c load_textures_II.c error.c flood_fill.c free.c load_map.c main.c main_utils.c main_utils2.c print_map.c validate.c free_map.c ft_split.c realloc_and_join.c free_images.c init.c validate_map.c ./get_next_line/get_next_line.c ./get_next_line/get_next_line_utils.c handle_key_press.c start_game.c exit_game.c close_window.c move_player.c
+SRCS = draw_map.c init_window.c load_textures.c load_textures_II.c error.c flood_fill.c free.c load_map.c main.c main_utils.c main_utils2.c print_map.c validate.c free_map.c ft_split.c realloc_and_join.c free_images.c init.c validate_map.c count_map_element.c ./get_next_line/get_next_line.c ./get_next_line/get_next_line_utils.c handle_key_press.c start_game.c exit_game.c close_window.c move_player.c
 
 OBJS = $(SRCS:.c=.o)
 
