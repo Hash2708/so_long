@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   load_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mrazanad <mrazanad@student.42antanana      +#+  +:+       +#+        */
+/*   By: mrazanad <mrazanad@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 17:22:34 by mrazanad          #+#    #+#             */
-/*   Updated: 2024/07/01 17:22:36 by mrazanad         ###   ########.fr       */
+/*   Updated: 2024/07/29 14:14:33 by mrazanad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,28 +33,15 @@ char	*read_lines(int fd)
 	return (lines);
 }
 
-int	count_lines(char *lines)
-{
-	int	line_count;
-
-	line_count = 0;
-	while (*lines)
-	{
-		if (*lines == '\n')
-			line_count++;
-		lines++;
-	}
-	return (line_count);
-}
-
-void	initialize_game_map(t_game *game, char *lines, int line_count)
+void	initialize_game_map(t_game *game, char *lines)
 {
 	game->map = ft_split(lines, '\n');
 	free(lines);
 	if (!game->map || !game->map[0])
 		error_exit("Empty map file.\n");
 	game->width = ft_strlen(game->map[0]);
-	game->height = line_count;
+	while (game->map[game->height])
+		game->height++;
 }
 
 void	count_collectibles(t_game *game)
@@ -91,8 +78,7 @@ void	load_map(t_game *game, char *map_file)
 	close(fd);
 	if (!lines)
 		error_exit("Empty map file.\n");
-	line_count = count_lines(lines);
-	initialize_game_map(game, lines, line_count);
+	initialize_game_map(game, lines);
 	count_collectibles(game);
 	validate_map(game);
 }

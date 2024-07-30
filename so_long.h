@@ -6,7 +6,7 @@
 /*   By: mrazanad <mrazanad@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 17:33:09 by mrazanad          #+#    #+#             */
-/*   Updated: 2024/07/15 14:27:41 by mrazanad         ###   ########.fr       */
+/*   Updated: 2024/07/29 14:06:01 by mrazanad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,7 @@ typedef struct s_game
 // load_map
 char		*get_next_line(int fd);
 char		*read_lines(int fd);
-int			count_lines(char *lines);
-void		initialize_game_map(t_game *game, char *lines, int line_count);
+void		initialize_game_map(t_game *game, char *lines);
 void		count_collectibles(t_game *game);
 void		load_map(t_game *game, char *map_file);
 
