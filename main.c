@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mrazanad <mrazanad@student.42antanana      +#+  +:+       +#+        */
+/*   By: mrazanad <mrazanad@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 17:23:48 by mrazanad          #+#    #+#             */
-/*   Updated: 2024/07/01 17:23:50 by mrazanad         ###   ########.fr       */
+/*   Updated: 2024/08/02 08:29:52 by mrazanad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

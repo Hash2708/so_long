@@ -16,10 +16,10 @@ $(MLX):
 	make -C minilibx-linux
 
 %.o: %.c $(MLX)
-	cc -Wuninitialized -I/usr/include -Imlx_linux -O3 -c $< -o $@
+	cc -Wall -Werror -Wextra -I/usr/include -Imlx_linux -O3 -c $< -o $@
 
 $(NAME): $(OBJS)
-	cc -Wuninitialized $(OBJS) $(MLX) $(LIBFTPRINTF) -Lmlx -L/usr/lib/X11 -lXext -lX11 -o $(NAME)
+	cc -Wall -Werror -Wextra $(OBJS) $(MLX) $(LIBFTPRINTF) -Lmlx -L/usr/lib/X11 -lXext -lX11 -o $(NAME)
 
 clean:
 		rm -f $(OBJS)

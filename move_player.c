@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   move_player.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mrazanad <mrazanad@student.42antanana      +#+  +:+       +#+        */
+/*   By: mrazanad <mrazanad@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 17:23:56 by mrazanad          #+#    #+#             */
-/*   Updated: 2024/07/01 17:23:58 by mrazanad         ###   ########.fr       */
+/*   Updated: 2024/08/02 09:07:53 by mrazanad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,15 +40,19 @@ int	handle_exit(t_game *game, int new_x, int new_y)
 		else
 		{
 			ft_printf("You must collect all collectibles before exiting!\n");
-			return (1);
+			return (0);
 		}
 	}
 	return (0);
 }
 
-void	update_player_position(t_game *game, int new_x, int new_y)
+void	update_player_position(t_game *game, int new_x, int new_y,
+		int player_above_exit)
 {
-	draw_tile(game, game->img_floor, game->player_x, game->player_y);
+	if (player_above_exit)
+		draw_tile(game, game->img_exit, game->player_x, game->player_y);
+	else
+		draw_tile(game, game->img_floor, game->player_x, game->player_y);
 	game->player_x = new_x;
 	game->player_y = new_y;
 	draw_player(game, game->player_x, game->player_y);
@@ -58,7 +62,12 @@ void	move_player(t_game *game, int dx, int dy)
 {
 	int	new_x;
 	int	new_y;
+	int	player_above_exit;
 
+	player_above_exit = 0;
+	if (game->player_x == game->exit_pos[0]
+		&& game->player_y == game->exit_pos[1])
+		player_above_exit = 1;
 	new_x = game->player_x + dx;
 	new_y = game->player_y + dy;
 	if (is_valid_move(game, new_x, new_y))
@@ -66,7 +75,7 @@ void	move_player(t_game *game, int dx, int dy)
 		handle_collectible(game, new_x, new_y);
 		if (!handle_exit(game, new_x, new_y))
 		{
-			update_player_position(game, new_x, new_y);
+			update_player_position(game, new_x, new_y, player_above_exit);
 			game->moves++;
 			ft_printf("Moves: %d\n", game->moves);
 		}

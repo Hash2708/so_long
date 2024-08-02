@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mrazanad <mrazanad@student.42antanana      +#+  +:+       +#+        */
+/*   By: mrazanad <mrazanad@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 17:20:35 by mrazanad          #+#    #+#             */
-/*   Updated: 2024/07/01 17:20:38 by mrazanad         ###   ########.fr       */
+/*   Updated: 2024/08/02 08:47:31 by mrazanad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

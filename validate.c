@@ -6,7 +6,7 @@
 /*   By: mrazanad <mrazanad@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 17:24:42 by mrazanad          #+#    #+#             */
-/*   Updated: 2024/07/29 14:06:41 by mrazanad         ###   ########.fr       */
+/*   Updated: 2024/08/02 10:15:31 by mrazanad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,10 @@ void	validate_rectangle(t_game *game)
 	while (i < game->height)
 	{
 		if ((int)strlen(game->map[i]) != game->width)
+		{
+			free_map(game);
 			error_exit("Map is not rectangular.\n");
+		}
 		i++;
 	}
 }
@@ -62,21 +65,20 @@ void	validate_path(t_game *game)
 	i = 0;
 	while (i < game->height)
 	{
-		map_copy[i] = strdup(game->map[i]);
+		map_copy[i] = ft_strdup(game->map[i]);
 		if (!map_copy[i])
 			error_exit("Memory allocation failed for map copy.\n");
 		i++;
 	}
 	flood_fill(map_copy, game->player_x, game->player_y, game);
-	i = 0;
-	while (i < game->height)
-	{
+	while (i--)
 		free(map_copy[i]);
-		i++;
-	}
 	free(map_copy);
 	if (game->collectibles > 0 || game->exits > 0)
+	{
+		free_map(game);
 		error_exit("No valid path exists in the map.\n");
+	}
 }
 
 void	check_map_conditions(t_game *game, int player_count)

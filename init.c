@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mrazanad <mrazanad@student.42antanana      +#+  +:+       +#+        */
+/*   By: mrazanad <mrazanad@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 17:22:25 by mrazanad          #+#    #+#             */
-/*   Updated: 2024/07/01 17:22:27 by mrazanad         ###   ########.fr       */
+/*   Updated: 2024/08/02 08:56:31 by mrazanad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,4 +36,6 @@ void	init_game(t_game *game)
 	game->img_player_right = NULL;
 	game->img_exit = NULL;
 	game->img_collectible = NULL;
+	game->exit_pos[0] = 0;
+	game->exit_pos[1] = 0;
 }

@@ -6,7 +6,7 @@
 /*   By: mrazanad <mrazanad@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 17:22:34 by mrazanad          #+#    #+#             */
-/*   Updated: 2024/07/29 14:14:33 by mrazanad         ###   ########.fr       */
+/*   Updated: 2024/08/02 09:56:40 by mrazanad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,10 @@ void	initialize_game_map(t_game *game, char *lines)
 	game->map = ft_split(lines, '\n');
 	free(lines);
 	if (!game->map || !game->map[0])
+	{
+		free_map(game);
 		error_exit("Empty map file.\n");
+	}
 	game->width = ft_strlen(game->map[0]);
 	while (game->map[game->height])
 		game->height++;
@@ -59,6 +62,11 @@ void	count_collectibles(t_game *game)
 		{
 			if (game->map[y][x] == 'C')
 				game->collectibles++;
+			if (game->map[y][x] == 'E')
+			{
+				game->exit_pos[0] = x;
+				game->exit_pos[1] = y;
+			}
 			x++;
 		}
 		y++;
@@ -69,7 +77,6 @@ void	load_map(t_game *game, char *map_file)
 {
 	int		fd;
 	char	*lines;
-	int		line_count;
 
 	fd = open(map_file, O_RDONLY);
 	if (fd == -1)

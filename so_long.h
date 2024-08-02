@@ -6,7 +6,7 @@
 /*   By: mrazanad <mrazanad@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 17:33:09 by mrazanad          #+#    #+#             */
-/*   Updated: 2024/07/29 14:06:01 by mrazanad         ###   ########.fr       */
+/*   Updated: 2024/08/02 09:01:47 by mrazanad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@ typedef struct s_game
 	int		exits;
 	int		moves;
 	int		player_direction;
+
+	int		exit_pos[2];
 
 	void	*mlx_ptr;
 	void	*win_ptr;
@@ -95,7 +97,8 @@ void		load_textures(t_game *game);
 int			is_valid_move(t_game *game, int new_x, int new_y);
 void		handle_collectible(t_game *game, int new_x, int new_y);
 int			handle_exit(t_game *game, int new_x, int new_y);
-void		update_player_position(t_game *game, int new_x, int new_y);
+void		update_player_position(t_game *game, int new_x, int new_y,
+				int player_above_exit);
 void		move_player(t_game *game, int dx, int dy);
 
 // main utils
